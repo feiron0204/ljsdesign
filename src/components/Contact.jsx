@@ -36,7 +36,7 @@ export default function Contact() {
         </form>
       </div>
       <footer className={styles.footer}>
-        <p>© 2024 미니어쳐 도자기. All rights reserved.</p>
+        <p>© 2026 미니어쳐 도자기. All rights reserved.</p>
       </footer>
     </section>
   )
