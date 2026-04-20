@@ -1,6 +1,20 @@
+import { useState } from 'react'
 import styles from './Contact.module.css'
 
+const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL
+
 export default function Contact() {
+  const [name, setName] = useState('')
+  const [tel, setTel] = useState('')
+  const [message, setMessage] = useState('')
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    const subject = encodeURIComponent(`[미니어쳐 도자기 문의] ${name}`)
+    const body = encodeURIComponent(`이름: ${name}\n연락처: ${tel}\n\n문의 내용:\n${message}`)
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
+  }
+
   return (
     <section id="contact" className={styles.section}>
       <div className={styles.inner}>
@@ -28,10 +42,10 @@ export default function Contact() {
             <span>월~토 10:00 – 18:00</span>
           </div>
         </div>
-        <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
-          <input className={styles.input} type="text" placeholder="이름" required />
-          <input className={styles.input} type="tel" placeholder="연락처" required />
-          <textarea className={styles.textarea} placeholder="문의 내용" rows={4} required />
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <input className={styles.input} type="text" placeholder="이름" value={name} onChange={(e) => setName(e.target.value)} required />
+          <input className={styles.input} type="tel" placeholder="연락처" value={tel} onChange={(e) => setTel(e.target.value)} required />
+          <textarea className={styles.textarea} placeholder="문의 내용" rows={4} value={message} onChange={(e) => setMessage(e.target.value)} required />
           <button className={styles.submit} type="submit">문의 보내기</button>
         </form>
       </div>
