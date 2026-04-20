@@ -64,7 +64,10 @@ export default function Products() {
               <p className={styles.cardDesc}>{p.desc}</p>
               <div className={styles.footer}>
                 <span className={styles.price}>{p.price}</span>
-                <button className={styles.btn}>문의하기</button>
+                <button
+                  className={styles.btn}
+                  onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+                >문의하기</button>
               </div>
             </div>
           </div>

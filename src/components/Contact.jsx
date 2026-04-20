@@ -2,7 +2,7 @@ import styles from './Contact.module.css'
 
 export default function Contact() {
   return (
-    <section className={styles.section}>
+    <section id="contact" className={styles.section}>
       <div className={styles.inner}>
         <p className={styles.sub}>CONTACT</p>
         <h2 className={styles.title}>구매 및 문의</h2>
